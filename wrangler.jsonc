@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "chess",
+  "main": "./src/worker.ts",
+  "compatibility_date": "2026-10-05",
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true,
+  },
+  "routes": [
+    {
+      "pattern": "chess.otbeaumont.me",
+      "custom_domain": true,
+    },
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "persist": true,
+    },
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ROOMS",
+        "class_name": "ChessRoom",
+      },
+    ],
+  },
+  "exports": {
+    "ChessRoom": {
+      "type": "durable-object",
+      "storage": "sqlite",
+    },
+  },
+}

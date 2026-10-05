@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@import "@radix-ui/colors/slate.css";
+@import "@radix-ui/colors/slate-dark.css";
+@import "@radix-ui/colors/amber.css";
+@import "@radix-ui/colors/amber-dark.css";
+@import "@radix-ui/colors/green.css";
+@import "@radix-ui/colors/green-dark.css";
+@import "@radix-ui/colors/red.css";
+@import "@radix-ui/colors/red-dark.css";
+
+@theme {
+  --color-canvas: var(--slate-2);
+  --color-surface: var(--slate-1);
+  --color-surface-subtle: var(--slate-3);
+  --color-border: var(--slate-6);
+  --color-border-strong: var(--slate-8);
+  --color-text: var(--slate-12);
+  --color-text-muted: var(--slate-11);
+  --color-text-subtle: var(--slate-10);
+  --color-accent: var(--amber-9);
+  --color-accent-hover: var(--amber-10);
+  --color-accent-contrast: var(--amber-12);
+  --color-success: var(--green-9);
+  --color-success-strong: var(--green-11);
+  --color-danger: var(--red-9);
+  --color-danger-strong: var(--red-11);
+
+  --color-light-square: #ebecd0;
+  --color-dark-square: #739552;
+  --color-highlight: rgba(255, 214, 0, 0.5);
+  --color-selected: rgba(255, 214, 0, 0.65);
+  --color-last-move: rgba(255, 214, 0, 0.38);
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .piece {
+    line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .piece-white {
+    color: #ffffff;
+    text-shadow:
+      0 0 2px rgba(0, 0, 0, 0.9),
+      0 1px 2px rgba(0, 0, 0, 0.55);
+  }
+
+  .piece-black {
+    color: #16161a;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.25);
+  }
+}

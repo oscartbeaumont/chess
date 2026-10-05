@@ -1,0 +1,45 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "pnpm build && wrangler deploy",
+    "cf:types": "wrangler types worker-configuration.d.ts --env-interface Env",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^3.0.0",
+    "@solidjs/meta": "1.0.0-next.2",
+    "@solidjs/router": "2.0.0-next.35",
+    "@solidjs/web": "2.0.0-rc.13",
+    "chess.js": "^1.4.0",
+    "clsx": "^2.1.1",
+    "filesystem-routing": "^0.4.0",
+    "solid-js": "2.0.0-rc.13",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.62.5",
+    "@cloudflare/workers-types": "^5.20261001.1",
+    "@solidjs/vite-plugin": "3.0.0-next.47",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.3",
+    "oxfmt": "0.71.0",
+    "oxlint": "1.86.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2",
+    "wrangler": "^4.147.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
