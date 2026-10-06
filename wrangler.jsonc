@@ -22,6 +22,10 @@
       "persist": true,
     },
   },
+  "vars": {
+    "VAPID_PUBLIC_KEY": "BIKGTLYuocQMjA3Nm-auKJnV7QIomV3T4jH4i7ol10g5RHAqaMoSfqh3-dQCmLxENPgVWCF6aICukVu8SzKYT3k",
+    "VAPID_SUBJECT": "mailto:oscar@otbeaumont.me",
+  },
   "durable_objects": {
     "bindings": [
       {

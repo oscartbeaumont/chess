@@ -1,0 +1,8 @@
+# Never cache the service worker: a stale copy delays push handling and
+# updates. Hashed assets under /assets are safe to cache aggressively.
+
+/sw.js
+  Cache-Control: no-cache
+
+/manifest.webmanifest
+  Content-Type: application/manifest+json

@@ -15,6 +15,7 @@ Live at **[chess.otbeaumont.me](https://chess.otbeaumont.me)**.
 - The server checks every move, so refreshing to cheat is (mostly) not a thing.
 - Legal-move hints, check highlights, pawn promotion, resign, draw offers, and rematch.
 - Your seat and the game survive refreshes and disconnects.
+- Add it to your phone's home screen and get a notification when it's your move.
 - Anyone else who opens the link just watches.
 
 ## How it's built

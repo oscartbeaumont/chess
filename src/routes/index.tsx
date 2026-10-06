@@ -25,7 +25,15 @@ export default function Home() {
   };
 
   return (
-    <main class="relative flex min-h-dvh items-center justify-center overflow-hidden px-6 py-12">
+    <main
+      class="relative flex min-h-dvh items-center justify-center overflow-hidden px-6 py-12"
+      style={{
+        "padding-top": "max(3rem, calc(var(--safe-top) + 1.5rem))",
+        "padding-bottom": "max(3rem, calc(var(--safe-bottom) + 1.5rem))",
+        "padding-left": "max(1.5rem, var(--safe-left))",
+        "padding-right": "max(1.5rem, var(--safe-right))",
+      }}
+    >
       <div
         class="pointer-events-none absolute inset-0 opacity-70"
         style={{

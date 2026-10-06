@@ -43,6 +43,16 @@ export interface RoomState {
   lastMove: MoveInput | null;
 }
 
+/** A browser push subscription, as produced by `PushSubscription.toJSON()`. */
+export interface PushSubscriptionJSON {
+  endpoint: string;
+  expirationTime?: number | null;
+  keys: {
+    p256dh: string;
+    auth: string;
+  };
+}
+
 /** Messages the browser sends to the room. */
 export type ClientMessage =
   | { type: "move"; from: Square; to: Square; promotion?: PieceSymbol }
@@ -50,7 +60,9 @@ export type ClientMessage =
   | { type: "offerDraw" }
   | { type: "acceptDraw" }
   | { type: "declineDraw" }
-  | { type: "reset" };
+  | { type: "reset" }
+  | { type: "pushSubscribe"; subscription: PushSubscriptionJSON }
+  | { type: "pushUnsubscribe"; endpoint: string };
 
 /** Messages the room sends to the browser. */
 export type ServerMessage =

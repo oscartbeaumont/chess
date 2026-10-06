@@ -21,6 +21,14 @@ export default {
         },
       });
 
+    if (url.pathname === "/api/push/key")
+      return new Response(JSON.stringify({ key: env.VAPID_PUBLIC_KEY ?? "" }), {
+        headers: {
+          "content-type": "application/json",
+          "cache-control": "public, max-age=86400",
+        },
+      });
+
     if (url.pathname.startsWith("/api/rooms/")) {
       const roomId = decodeURIComponent(
         url.pathname.slice("/api/rooms/".length).split("/")[0] ?? "",

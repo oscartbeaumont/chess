@@ -3,6 +3,7 @@ import { useParams } from "@solidjs/router";
 import { isServer } from "@solidjs/web";
 import { createEffect, createMemo, createSignal, For, Show } from "solid-js";
 import { Board } from "~/components/board";
+import { NotificationsCard } from "~/components/notifications-card";
 import { createRoomSession } from "~/lib/session";
 import {
   isOver,
@@ -206,7 +207,14 @@ function RoomView(props: { roomId: string }) {
     <div class="flex min-h-dvh flex-col">
       <Title>{`Chess room ${props.roomId}`}</Title>
 
-      <header class="sticky top-0 z-20 border-b border-border bg-surface/90 backdrop-blur">
+      <header
+        class="sticky top-0 z-20 border-b border-border bg-surface/90 backdrop-blur"
+        style={{
+          "padding-top": "var(--safe-top)",
+          "padding-left": "var(--safe-left)",
+          "padding-right": "var(--safe-right)",
+        }}
+      >
         <div class="mx-auto flex w-full max-w-5xl items-center gap-3 px-4 py-3">
           <a
             href="/"
@@ -244,7 +252,14 @@ function RoomView(props: { roomId: string }) {
         </div>
       </header>
 
-      <main class="mx-auto grid w-full max-w-5xl flex-1 gap-6 px-4 py-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <main
+        class="mx-auto grid w-full max-w-5xl flex-1 gap-6 px-4 py-6 lg:grid-cols-[minmax(0,1fr)_320px]"
+        style={{
+          "padding-left": "max(1rem, var(--safe-left))",
+          "padding-right": "max(1rem, var(--safe-right))",
+          "padding-bottom": "max(1.5rem, var(--safe-bottom))",
+        }}
+      >
         <section class="flex flex-col gap-4">
           <Show when={state()} fallback={<BoardSkeleton />}>
             {(current) => (
@@ -328,6 +343,10 @@ function RoomView(props: { roomId: string }) {
                     advantage={blackAdvantage()}
                   />
                 </div>
+
+                <Show when={seated()}>
+                  <NotificationsCard session={session} seated={seated} />
+                </Show>
 
                 <div class="rounded-xl bg-surface p-3 ring-1 ring-border">
                   <h2 class="mb-2 px-1 text-xs font-semibold tracking-wide text-text-subtle uppercase">
