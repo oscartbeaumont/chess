@@ -4,12 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "cf dev",
+    "build": "cf workers types && tsc --noEmit && cf build",
     "preview": "vite preview",
-    "deploy": "pnpm build && wrangler deploy",
-    "cf:types": "wrangler types worker-configuration.d.ts --env-interface Env",
-    "typecheck": "tsc --noEmit",
+    "deploy": "cf deploy",
+    "types": "cf workers types",
+    "typecheck": "cf workers types && tsc --noEmit",
     "lint": "oxlint src",
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
@@ -28,17 +28,17 @@
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.62.5",
+    "@cloudflare/vite-plugin": "^2.0.0-rc.0",
     "@cloudflare/workers-types": "^5.20261001.1",
     "@solidjs/vite-plugin": "3.0.0-next.47",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.6.3",
+    "cf": "1.0.0-rc.0",
     "oxfmt": "0.71.0",
     "oxlint": "1.86.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
-    "vite": "^8.3.2",
-    "wrangler": "^4.147.0"
+    "vite": "^8.3.2"
   },
   "engines": {
     "node": ">=24"

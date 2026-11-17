@@ -20,5 +20,6 @@
     },
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "dist", ".wrangler"]
+  "include": ["src", "cloudflare.config.ts", "vite.config.ts", ".cloudflare/types"],
+  "exclude": ["node_modules", "dist"]
 }

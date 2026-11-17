@@ -1,7 +1,7 @@
 # Local development secrets. Copy to `.dev.vars` and fill in.
-# In production these are set with `wrangler secret put <NAME>`.
+# In production this is a Worker secret: `cf workers secrets update VAPID_PRIVATE_KEY`.
 #
 # Web Push private key (base64url, P-256 scalar). Generate a matching pair with:
 #   npx web-push generate-vapid-keys
-# and put the public key in `wrangler.jsonc` as VAPID_PUBLIC_KEY.
+# and put the public key in `cloudflare.config.ts` as VAPID_PUBLIC_KEY.
 VAPID_PRIVATE_KEY=

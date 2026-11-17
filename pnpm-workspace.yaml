@@ -2,3 +2,5 @@ allowBuilds:
   esbuild: true
   workerd: true
   "@tailwindcss/oxide": true
+minimumReleaseAgeExclude:
+  - cf@1.0.0-rc.0
